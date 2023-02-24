@@ -57,5 +57,5 @@ docker inspect <container_id> | grep IPAddress
 
 ## Using Jenkins Python Agent
 ```
-docker pull rshourou/myjenkinsagents:python
+docker pull rshourou/jenkinsagent:python
 ```
