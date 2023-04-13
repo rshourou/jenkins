@@ -11,6 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building.."
+                git 'https://github.com/rshourou/terraform_aws.git'
                 sh '''
                 cd myapp
                 pip install -r requirements.txt
