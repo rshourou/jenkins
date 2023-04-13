@@ -16,8 +16,7 @@ pipeline {
                 pip install -r requirements.txt
                 '''
             }
-            posts {
-            }
+         
         }
         stage('Test') {
             steps {
