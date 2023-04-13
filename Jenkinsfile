@@ -26,13 +26,18 @@ pipeline {
                 python3 hello.py
                 python3 hello.py --name=Brad
                 '''
-            }
+                   }
             post{
                 success {
-                    echo "Testing was successfull"
-                }
+                    emailext subject: "Job \'${JOB_NAME}\' (build ${BUILD_NUMBER}) ${currentBuild.result}",
+                        body: "Please go to ${BUILD_URL} and verify the build", 
+                        attachLog: true, 
+                        compressLog: true, 
+                        to: "rshourou@sfu.ca",
+                        recipientProviders: [upstreamDevelopers(), requestor()]
+                  }
+              }
             }
-        }
         stage('Deliver') {
             steps {
                 echo 'Deliver....'
