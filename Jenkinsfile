@@ -27,6 +27,11 @@ pipeline {
                 python3 hello.py --name=Brad
                 '''
             }
+            post{
+                success {
+                    echo "Testing was successfull"
+                }
+            }
         }
         stage('Deliver') {
             steps {
